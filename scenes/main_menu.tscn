@@ -1,0 +1,211 @@
+[gd_scene load_steps=13 format=3 uid="uid://gv7oqo8ehjry"]
+
+[ext_resource type="FontFile" uid="uid://o5b4nmc1cd5p" path="res://assets/fonts/IMFellEnglishSC-Regular.ttf" id="1_hmlv7"]
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="2_dkrw7"]
+[ext_resource type="Theme" uid="uid://kqpu0ekgakx6" path="res://assets/theme/HTP_theme.tres" id="3_bbf1x"]
+[ext_resource type="Texture2D" uid="uid://btp3ugitouipd" path="res://assets/img/image.png" id="4_8xl60"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3go6"]
+bg_color = Color(0.254902, 0.533333, 0.945098, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+expand_margin_left = 115.0
+expand_margin_right = 115.0
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpnvr"]
+bg_color = Color(0.941176, 0.752941, 0.741176, 1)
+border_color = Color(0.505882, 0.666667, 0.913725, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+expand_margin_left = 115.0
+expand_margin_right = 115.0
+shadow_color = Color(0.374139, 0.374139, 0.374139, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvkfp"]
+bg_color = Color(0.254902, 0.533333, 0.945098, 1)
+
+[sub_resource type="Theme" id="Theme_vkcww"]
+default_font = ExtResource("1_hmlv7")
+default_font_size = 24
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_d3go6")
+Button/styles/normal = SubResource("StyleBoxFlat_lpnvr")
+Panel/styles/panel = SubResource("StyleBoxFlat_xvkfp")
+
+[sub_resource type="Theme" id="Theme_rnsw2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6waam"]
+content_margin_top = 1.0
+bg_color = Color(0.941176, 0.752941, 0.741176, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 100.0
+expand_margin_right = 100.0
+shadow_color = Color(0.215902, 0.215902, 0.215902, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+anti_aliasing_size = 4.0
+
+[sub_resource type="Theme" id="Theme_0qlfb"]
+Button/styles/normal = SubResource("StyleBoxFlat_6waam")
+
+[sub_resource type="GDScript" id="GDScript_0v0vn"]
+script/source = "extends PopupPanel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Main menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vkcww")
+script = ExtResource("2_dkrw7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.505882, 0.666667, 0.913725, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 50
+text = "FoLA²  Bordspel  Digitale Variant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxbuttons" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_rnsw2")
+
+[node name="ButtonCreate" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_0qlfb")
+theme_override_constants/h_separation = 20
+text = "Create Game"
+
+[node name="PopupPanel" type="PopupPanel" parent="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons/ButtonCreate"]
+title = "Create  Game"
+position = Vector2i(760, 230)
+size = Vector2i(300, 150)
+visible = true
+borderless = false
+script = SubResource("GDScript_0v0vn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons/ButtonCreate/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 296.0
+offset_bottom = 146.0
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons/ButtonCreate/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 296.0
+offset_bottom = 146.0
+placeholder_text = "Game Name"
+
+[node name="Button join" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Join Game"
+
+[node name="Button Exit" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 25
+text = "Exit Game"
+
+[node name="Button HTP" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("3_bbf1x")
+text = "First Time ?
+Learn how to play
+"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 895.0
+offset_top = 9.0
+offset_right = 1124.0
+offset_bottom = 89.0
+texture = ExtResource("4_8xl60")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 81.0
+grow_vertical = 0
+text = "EN NL"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/VBoxbuttons/ButtonCreate" to="." method="_on_button_create_pressed"]
