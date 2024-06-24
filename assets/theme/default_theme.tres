@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cvavcq76plno"]
+
+[ext_resource type="FontFile" uid="uid://o5b4nmc1cd5p" path="res://assets/fonts/IMFellEnglishSC-Regular.ttf" id="1_d1jif"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3go6"]
+bg_color = Color(0.254902, 0.533333, 0.945098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpnvr"]
+bg_color = Color(0.941176, 0.752941, 0.741176, 1)
+border_color = Color(0.505882, 0.666667, 0.913725, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 20
+expand_margin_left = 115.0
+expand_margin_right = 115.0
+shadow_color = Color(0.374139, 0.374139, 0.374139, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+anti_aliasing_size = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvkfp"]
+bg_color = Color(0.254902, 0.533333, 0.945098, 1)
+
+[resource]
+default_font = ExtResource("1_d1jif")
+default_font_size = 24
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_d3go6")
+Button/styles/normal = SubResource("StyleBoxFlat_lpnvr")
+Panel/styles/panel = SubResource("StyleBoxFlat_xvkfp")
